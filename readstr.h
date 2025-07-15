@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 char* read_string() {
-    int buf = sizeof(char)*4;
+    int buf = sizeof(char)*8;
     int i = 0;
     char *string = malloc(buf);
     if (!string) {
@@ -19,7 +19,7 @@ char* read_string() {
             break;
         }
         if (i*sizeof(char) >= buf - 1) {
-            buf += sizeof(char);
+            buf += sizeof(char)*4;
             char *temp = realloc(string, buf);
             if (!temp) {
                 free(string);
